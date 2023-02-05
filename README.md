@@ -2,7 +2,7 @@
 
 
 <h2>Description</h2>
-Todo app created for managing your tasks . It is done with help of web framework Flask. Design of application made with help of graphical framwork Simantec UI.<br/>
+Todo app created for managing your tasks . It is done with help of web framework Flask. Design of application made with help of graphical framework Simantec UI.<br/>
 Manual:<br/>
 User adds wanted task and its then outputed to table with date when it was added , its status(completed ot not) , and actions(Update/Delete)
 
