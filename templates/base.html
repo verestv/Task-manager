@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang ='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Todo app</title>
+    <link rel ="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js">     
+    </script>
+</head>
+<body>
+    <h1 class="ui center aligned header">Task Manager</h1>
+    <div style="margin-top:80px;" class="ui container"
+    <h1 class="ui center aligned header"></h1>
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Added</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        {% for todo in todo_list%}
+        <tr>
+            <td>{{ todo.title }}</td>
+            <td>{{ todo.data_created.date() }}</td>
+            <td>
+                {%if todo.complete == False%}
+                    <span class="ui gray label">Not completed</span>
+                {%else%}
+                    <span class="ui green label">Completed</span>
+                {%endif%}
+            </td>
+            <td>
+                <a class='ui blue button' href="/update/{{ todo.id }}">Update</a>
+                
+                <a class='ui red button' href="/delete/{{ todo.id }}">Delete</a>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+    <form class ='ui form' action="/add" method="post">
+    <div>
+        <label for="title">Todo Title</label>
+        <input type="text" name="title" placeholder="Enter Todo...">
+        
+        <button class="ui grey button" type="Submit">Add</button>
+    </div>
+    </form>
+</div>
+</body>
+</html>
